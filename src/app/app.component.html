@@ -1,0 +1,16 @@
+<div class="container">
+  <button (click)="showToggle()">{{ show ? "hide" : "show" }}</button>
+  <ng-container *ngIf="this.timeLeft > 0">
+    <button (click)="cleanUsersCache()">clean cache</button>
+  </ng-container>
+</div>
+
+<p>cache remaning time: {{ timeLeft }} seconds.</p>
+
+<ng-container *ngIf="show">
+  <ul>
+    <ng-container *ngFor="let user of users$ | async">
+      <li>{{ user.name }}</li>
+    </ng-container>
+  </ul>
+</ng-container>
